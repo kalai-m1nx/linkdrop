@@ -1,0 +1,34 @@
+# Node & Vite
+node_modules/
+dist/
+.env
+.env.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Flutter/Dart/Pub related
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+build/
+/coverage/
+windows/flutter/ephemeral/
+
+# Android Studio / Gradle
+.gradle/
+android/app/debug/
+android/app/profile/
+android/app/release/
+*.apk
+
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.idea/
+*.iml
