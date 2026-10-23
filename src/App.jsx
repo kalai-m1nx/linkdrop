@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { ConfigModal } from './components/ConfigModal';
 import { HelpModal } from './components/HelpModal';
+import { InstallBanner } from './components/InstallBanner';
+import { InstallModal } from './components/InstallModal';
 import { HomePage } from './pages/HomePage';
 import { DownloadPage } from './pages/DownloadPage';
 import { useTheme } from './hooks/useTheme';
@@ -10,6 +12,7 @@ export function App() {
   const { isDark, toggleTheme } = useTheme();
   const [isConfigOpen, setIsConfigOpen] = useState(false);
   const [isHelpOpen, setIsHelpOpen] = useState(false);
+  const [isInstallOpen, setIsInstallOpen] = useState(false);
 
   // Simple, robust client-side URL routing
   const [currentPath, setCurrentPath] = useState(() => window.location.pathname);
@@ -39,6 +42,7 @@ export function App() {
         onToggleTheme={toggleTheme}
         onOpenConfig={() => setIsConfigOpen(true)}
         onOpenHelp={() => setIsHelpOpen(true)}
+        onOpenInstall={() => setIsInstallOpen(true)}
       />
 
       {/* Main Content */}
@@ -50,11 +54,21 @@ export function App() {
         )}
       </main>
 
+      {/* Floating PWA / App Install Prompt */}
+      <InstallBanner onOpenModal={() => setIsInstallOpen(true)} />
+
       {/* Footer */}
       <footer className="border-t border-slate-200/80 dark:border-slate-800/80 py-6 text-center text-xs text-slate-500 dark:text-slate-400">
         <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p>LinkDrop — Fast, private large file & video sharing.</p>
           <div className="flex items-center space-x-4">
+            <button
+              onClick={() => setIsInstallOpen(true)}
+              className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors font-medium text-brand-600 dark:text-brand-400"
+            >
+              📱 Install App
+            </button>
+            <span>•</span>
             <button
               onClick={() => setIsHelpOpen(true)}
               className="hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
@@ -73,6 +87,11 @@ export function App() {
       </footer>
 
       {/* Modals */}
+      <InstallModal
+        isOpen={isInstallOpen}
+        onClose={() => setIsInstallOpen(false)}
+      />
+
       <ConfigModal
         isOpen={isConfigOpen}
         onClose={() => setIsConfigOpen(false)}

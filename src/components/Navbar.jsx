@@ -1,8 +1,8 @@
 import React from 'react';
-import { Sun, Moon, Database, HelpCircle, HardDriveDownload, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Sun, Moon, Database, HelpCircle, HardDriveDownload, Sparkles, CheckCircle2, Smartphone } from 'lucide-react';
 import { isSupabaseConfigured } from '../lib/supabase';
 
-export function Navbar({ isDark, onToggleTheme, onOpenConfig, onOpenHelp }) {
+export function Navbar({ isDark, onToggleTheme, onOpenConfig, onOpenHelp, onOpenInstall }) {
   const isConnected = isSupabaseConfigured();
 
   return (
@@ -30,6 +30,16 @@ export function Navbar({ isDark, onToggleTheme, onOpenConfig, onOpenHelp }) {
 
         {/* Action Controls */}
         <div className="flex items-center space-x-2 sm:space-x-3">
+          {/* Install App Button */}
+          <button
+            onClick={onOpenInstall}
+            className="flex items-center space-x-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white shadow-sm shadow-brand-500/20 transition-all active:scale-95"
+            title="Install LinkDrop App on your device"
+          >
+            <Smartphone className="w-3.5 h-3.5" />
+            <span>Install</span>
+          </button>
+
           {/* Storage Mode Pill */}
           <button
             onClick={onOpenConfig}
