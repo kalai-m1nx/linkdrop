@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://linkdrop-amber.vercel.app/sitemap.xml
