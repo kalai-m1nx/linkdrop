@@ -1,11 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
   <defs>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#6366f1" />
+    <linearGradient id="linkdrop-grad" x1="15%" y1="85%" x2="85%" y2="15%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="35%" stop-color="#6366f1" />
+      <stop offset="70%" stop-color="#a855f7" />
       <stop offset="100%" stop-color="#ec4899" />
     </linearGradient>
   </defs>
-  <rect width="48" height="48" rx="12" fill="url(#grad)" />
-  <path d="M24 12V28M24 28L18 22M24 28L30 22" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M14 34H34" stroke="white" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- Background squircle -->
+  <rect x="16" y="16" width="480" height="480" rx="120" fill="url(#linkdrop-grad)" />
+
+  <!-- Subtle inner border highlight -->
+  <rect x="17" y="17" width="478" height="478" rx="119" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+
+  <!-- HardDriveDownload Icon in crisp white -->
+  <g transform="translate(136, 136) scale(10)" stroke="#ffffff" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Down Arrow -->
+    <path d="M12 2v9"/>
+    <path d="m16 7-4 4-4-4"/>
+    <!-- Hard Drive Tray -->
+    <rect width="20" height="8.2" x="2" y="13.8" rx="2.2"/>
+    <!-- Two LED status indicator dots -->
+    <circle cx="6" cy="17.9" r="0.9" fill="#ffffff" stroke="none" />
+    <circle cx="10" cy="17.9" r="0.9" fill="#ffffff" stroke="none" />
+  </g>
 </svg>
